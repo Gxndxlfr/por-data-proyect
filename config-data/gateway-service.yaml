@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: deposito-service
+          uri: lb://deposito-service
+          predicates:
+            - Path=/deposito/**
+        - id: giro-service
+          uri: lb://giro-service
+          predicates:
+            - Path=/giro/**
+        - id: resumen-service
+          uri: lb://resumen-service
+          predicates:
+            - Path=/resumen/**
+        
