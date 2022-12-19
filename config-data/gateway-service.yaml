@@ -13,7 +13,7 @@ spring:
           predicates:
             - Path=/deposito/**
         - id: giro-service
-          uri: lb://giro-service
+          uri: http://localhost:8282
           predicates:
             - Path=/giro/**
         - id: resumen-service
